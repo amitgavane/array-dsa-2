@@ -1,0 +1,61 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    int n, i, m, b;
+    int a[100];
+
+    cout << "Enter the number of elements you want in the array: ";
+    cin >> m;
+
+    if(m > 100) {
+        cout << "Maximum allowed elements is 100." << endl;
+        return 1;
+    }
+
+    cout << "Enter the elements in the array: ";
+    for(i = 0; i < m; i++) {
+        cin >> a[i];
+    }
+
+    cout << "(1 to delete the first element)(2 for index-wise deletion)(3 to delete the last element): ";
+    cin >> n;
+
+    switch (n) {
+        case 1:
+            for (i = 0; i < m - 1; i++) {
+                a[i] = a[i + 1];
+            }
+            m--;
+            break;
+
+        case 2:
+            cout << "Enter the index number of the element you want to delete: ";
+            cin >> b;
+            if (b < 0 || b >= m) {
+                cout << "Invalid index" << endl;
+                return 1;
+            }
+            for (i = b; i < m - 1; i++) {
+                a[i] = a[i + 1];
+            }
+            m--;
+            break;
+
+        case 3:
+            m--;
+            break;
+
+        default:
+            cout << "Invalid option" << endl;
+            return 1;
+    }
+
+    cout << "Updated array: ";
+    for (i = 0; i < m; i++) {
+        cout << a[i] << " ";
+    }
+    cout << endl;
+
+    return 0;
+}
