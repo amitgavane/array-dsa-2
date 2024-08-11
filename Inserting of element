@@ -1,0 +1,60 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    int arr[100], n, elem, index;
+
+    cout << "Enter the number of elements in the array: ";
+    cin >> n;
+    cout << "Enter the elements of the array: ";
+    for(int i = 0; i < n; i++) {
+        cin >> arr[i];
+    }
+
+    // Insert at the beginning
+    cout << "Enter the element to insert at the beginning: ";
+    cin >> elem;
+    for(int i = n; i > 0; i--) {
+        arr[i] = arr[i - 1];
+    }
+    arr[0] = elem;
+    n++;
+    cout << "Array after insertion at the beginning: ";
+    for(int i = 0; i < n; i++) {
+        cout << arr[i] << " ";
+    }
+    cout << endl;
+
+    // Insert at a specific index
+    cout << "Enter the index where you want to insert an element: ";
+    cin >> index;
+    cout << "Enter the element to insert at index " << index << ": ";
+    cin >> elem;
+    if(index < 0 || index > n) {
+        cout << "Invalid index!" << endl;
+    } else {
+        for(int i = n; i > index; i--) {
+            arr[i] = arr[i - 1];
+        }
+        arr[index] = elem;
+        n++;
+        cout << "Array after insertion at index " << index << ": ";
+        for(int i = 0; i < n; i++) {
+            cout << arr[i] << " ";
+        }
+        cout << endl;
+    }
+
+    // Insert at the end
+    cout << "Enter the element to insert at the end: ";
+    cin >> elem;
+    arr[n] = elem;
+    n++;
+    cout << "Array after insertion at the end: ";
+    for(int i = 0; i < n; i++) {
+        cout << arr[i] << " ";
+    }
+    cout << endl;
+
+    return 0;
+}
